@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     employeeShow: function () {
-      axios.get("http://localhost:3000/employees/" + this.$route.params.id).then((response) => {
+      axios.get("https://pacific-thicket-40492.herokuapp.com/employees/" + this.$route.params.id).then((response) => {
         this.employee = response.data;
         console.log(response.data);
       });

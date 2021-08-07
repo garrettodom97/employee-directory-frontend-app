@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     employeeIndex: function () {
-      axios.get("http://localhost:3000/employees").then((response) => {
+      axios.get("https://pacific-thicket-40492.herokuapp.com/employees").then((response) => {
         this.employees = response.data;
         console.log(response.data);
       });
