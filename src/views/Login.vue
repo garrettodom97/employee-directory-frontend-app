@@ -6,9 +6,9 @@
     </li>
     <form v-on:submit.prevent="Login()">
       <p>Email:</p>
-      <input type="text" />
+      <input type="text" v-model="newSessionParams.email" />
       <p>Password:</p>
-      <input type="password" />
+      <input type="password" v-model="newSessionParams.password" />
       <p></p>
       <input type="submit" />
     </form>
