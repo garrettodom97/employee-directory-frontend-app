@@ -15,6 +15,11 @@ const routes = [
     component: Home,
   },
   {
+    path: "/employees/new",
+    name: "EmployeeNew",
+    component: EmployeeNew,
+  },
+  {
     path: "/employees/:id",
     name: "EmployeeShow",
     component: EmployeeShow,
@@ -28,11 +33,6 @@ const routes = [
     path: "/logout",
     name: "Logout",
     component: Logout,
-  },
-  {
-    path: "/employees/new",
-    name: "EmployeeNew",
-    component: EmployeeNew,
   },
   {
     path: "/about",
