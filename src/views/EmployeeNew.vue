@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import axios from "axiois";
+import axios from "axios";
 
 export default {
   data: function () {
