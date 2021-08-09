@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">Employee Directory</a>
         <button
@@ -19,7 +19,7 @@
             <a class="nav-link" href="/">Directory</a>
             <a v-if="!isLoggedIn()" class="nav-link active" aria-current="page" href="/login">Login</a>
             <a v-if="isLoggedIn()" class="nav-link" href="/logout">Logout</a>
-            <a class="nav-link" href="employees/new">Create New Employee</a>
+            <a v-if="isLoggedIn()" class="nav-link" href="employees/new">Create New Employee</a>
           </div>
         </div>
       </div>
