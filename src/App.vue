@@ -1,14 +1,29 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link v-if="!isLoggedIn()" to="/login">Login</router-link>
-      |
-      <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>
-      |
-      <router-link to="/employees/new">Create Employee</router-link>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Employee Directory</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="/">Directory</a>
+            <a v-if="!isLoggedIn()" class="nav-link active" aria-current="page" href="/login">Login</a>
+            <a v-if="isLoggedIn()" class="nav-link" href="/logout">Logout</a>
+            <a class="nav-link" href="employees/new">Create New Employee</a>
+          </div>
+        </div>
+      </div>
+    </nav>
     <router-view />
   </div>
 </template>

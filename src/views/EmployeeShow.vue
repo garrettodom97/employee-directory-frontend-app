@@ -1,16 +1,25 @@
 <template>
   <div>
-    <h2>{{ employee.first_name }} {{ employee.last_name }}</h2>
-    <img :src="employee.picture" alt="" />
-    <p>{{ employee.gender }}</p>
-    <p>{{ employee.email }}</p>
-    <p>{{ employee.phone }}</p>
-    <p>{{ employee.job_title }}</p>
-    <p>{{ employee.department.name }}</p>
-    <router-link to="/">
-      <button>Back</button>
-    </router-link>
-    <button v-on:click="editModal()">Edit</button>
+    <div class="col-4"></div>
+    <div class="card" style="width: 18rem">
+      <img :src="employee.picture" alt="" />
+      <div class="card-body">
+        <h2>{{ employee.first_name }} {{ employee.last_name }}</h2>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ employee.gender }}</li>
+        <li class="list-group-item">{{ employee.email }}</li>
+        <li class="list-group-item">{{ employee.phone }}</li>
+        <li class="list-group-item">{{ employee.job_title }}</li>
+      </ul>
+      <div class="card-body">
+        <router-link to="/">
+          <button type="button" class="btn btn-secondary">Back</button>
+        </router-link>
+        <button v-if="isLoggedIn()" v-on:click="editModal()" type="button" class="btn btn-warning">Edit</button>
+        <button v-if="isLoggedIn()" v-on:click="deleteModal()" type="button" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
     <dialog id="edit">
       <form method="dialog">
         <h1>Edit Employee</h1>
@@ -31,8 +40,15 @@
         <p>Department Code (1: Engineering, 2: Sales, 3: Marketing, 4: Finance, 5: Human Resources):</p>
         <input type="text" v-model="editEmployeeParams.department_code" />
         <p></p>
-        <button>Close</button>
-        <button v-on:click="editEmployee()">Edit Employee</button>
+        <button v-on:click="closeModal()" type="button" class="btn btn-secondary">Close</button>
+        <button v-on:click="editEmployee()" type="button" class="btn btn-primary">Edit Employee</button>
+      </form>
+    </dialog>
+    <dialog id="delete">
+      <form method="dialog">
+        <h1>Are you sure you want to delete this employee?</h1>
+        <button v-on:click="deleteEmployee()" type="button" class="btn btn-primary">Yes</button>
+        <button v-on:click="closeModal()" type="button" class="btn btn-secondary">No</button>
       </form>
     </dialog>
   </div>
@@ -74,6 +90,34 @@ export default {
           this.$router.go();
         });
     },
+    closeModal: function () {
+      this.$router.go();
+    },
+    deleteModal: function () {
+      console.log("Deleting Employee");
+      document.querySelector("#delete").showModal();
+    },
+    deleteEmployee: function () {
+      axios.delete("https://pacific-thicket-40492.herokuapp.com/employees/" + this.employee.id).then((response) => {
+        console.log(response.data);
+        this.$router.push("/");
+      });
+    },
+    isLoggedIn: function () {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
 };
 </script>
+
+<style>
+.card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+}
+</style>

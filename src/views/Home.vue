@@ -1,16 +1,23 @@
 <template>
   <div class="home">
     <h1>Employees</h1>
-    <div v-for="employee in employees" :key="employee.id">
-      <router-link :to="`/employees/${employee.id}`">
-        <img :src="employee.picture" alt="" />
-        <h4>{{ employee.first_name }} {{ employee.last_name }}</h4>
-      </router-link>
-      <li>{{ employee.gender }}</li>
-      <li>{{ employee.email }}</li>
-      <li>{{ employee.phone }}</li>
-      <li>{{ employee.job_title }}</li>
-      <p></p>
+    <div class="row row-cols-1 row-cols-md-6 g-4">
+      <div v-for="employee in employees" :key="employee.id">
+        <div class="col">
+          <div class="card">
+            <router-link :to="`/employees/${employee.id}`">
+              <img class="thumbnail" :src="employee.picture" alt="" />
+            </router-link>
+            <div class="card-body">
+              <h4>{{ employee.first_name }} {{ employee.last_name }}</h4>
+              <p>{{ employee.gender }}</p>
+              <p>{{ employee.email }}</p>
+              <p>{{ employee.phone }}</p>
+              <p>{{ employee.job_title }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
