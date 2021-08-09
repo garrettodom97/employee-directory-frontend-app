@@ -1,7 +1,8 @@
 <template>
   <div class="employeeNew">
     <h1>Create a new employee</h1>
-    <li v-for="error in errors" :key="error.id">
+    <p v-if="status == 401">You must be logged in to create an employee</p>
+    <li v-for="error in errors" :key="error">
       {{ error }}
     </li>
     <form v-on:submit.prevent="createEmployee()">
@@ -20,7 +21,7 @@
       <input type="text" v-model="newEmployeeParams.picture" />
       <p></p>
       <p>Department Code (1: Engineering, 2: Sales, 3: Marketing, 4: Finance, 5: Human Resources):</p>
-      <input type="text" v-model="newEmployeeParams.phone" />
+      <input type="text" v-model="newEmployeeParams.department_code" />
       <p></p>
       <input type="submit" />
     </form>
@@ -33,8 +34,9 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      newEmployeeParams: {},
+      newEmployeeParams: { department_code: 1 },
       errors: [],
+      status: "",
     };
   },
   methods: {
@@ -47,7 +49,8 @@ export default {
         })
         .catch((error) => {
           console.log(error.response);
-          this.errors = error.response;
+          this.errors = error.response.data.errors;
+          this.status = error.response.status;
         });
     },
   },

@@ -5,7 +5,7 @@
       |
       <router-link v-if="!isLoggedIn()" to="/login">Login</router-link>
       |
-      <router-link v-if="isLoggedIn()" to="/logout">Login</router-link>
+      <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>
       |
       <router-link to="/employees/new">Create Employee</router-link>
     </div>
@@ -19,8 +19,9 @@ export default {
     isLoggedIn: function () {
       if (localStorage.getItem("jwt")) {
         return true;
+      } else {
+        return false;
       }
-      return false;
     },
   },
 };
