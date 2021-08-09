@@ -6,11 +6,11 @@ For this propject I used a Ruby on Rails backend with a PostgreSQL database. I m
 
 ### Frontend
 
-For the frontend, I created a Vue.js app. The views include a home page that serves as the directory of all employees with a search bar to search by any employee attribute, a login page for the admin to login, an employee show page which can be accessed by clicking an employee's picture from the directory, an employee update modal accesssible by the admin from each show page, an employee delete modal accessible by the admin from each show page, and an employee create page accessible by the admin.
+For the frontend, I created a Vue.js app. The views include a home page that serves as the directory of all employees with a search bar to search by any employee attribute, a login page for the admin to login, an employee show page which can be accessed by clicking an employee's picture from the directory, an employee update modal accesssible by the admin from each show page, an employee delete modal accessible by the admin from each show page, and an employee create page accessible by the admin. I used Bootstrap to add some minor styling to forms, buttons, and cards. I used Vue2-filters to implement the search functionality.
 
 ### Deployment
 
-The backend is hosted at https://pacific-thicket-40492.herokuapp.com/ while the frontend is hosted at https://postlight-employee-directory.netlify.app/. 
+The backend is hosted at https://pacific-thicket-40492.herokuapp.com/ while the frontend is hosted at https://postlight-employee-directory.netlify.app/. The app should be fully functional from the frontend link.
 
 ### Extra Notes
 
