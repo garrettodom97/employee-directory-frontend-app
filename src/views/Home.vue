@@ -1,8 +1,24 @@
 <template>
   <div class="home">
     <h1>Employees</h1>
+    <div class="d-flex justify-content-center align-items-center">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="searchKeyword" />
+    </div>
+    <p></p>
     <div class="row row-cols-1 row-cols-md-6 g-4">
-      <div v-for="employee in employees" :key="employee.id">
+      <div
+        v-for="employee in filterBy(
+          employees,
+          searchKeyword,
+          'first_name',
+          'last_name',
+          'email',
+          'gender',
+          'phone',
+          'job_title'
+        )"
+        :key="employee.id"
+      >
         <div class="col">
           <div class="card">
             <router-link :to="`/employees/${employee.id}`">
@@ -24,11 +40,14 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from "vue2-filters";
 
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function () {
     return {
       employees: [],
+      searchKeyword: "",
     };
   },
   created: function () {
@@ -44,3 +63,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.form-control {
+  width: 300px;
+}
+</style>
