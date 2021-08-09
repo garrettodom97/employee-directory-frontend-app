@@ -2,7 +2,7 @@
 
 ## Backend
 
-For this propject I used a Ruby on Rails backend with a PostgreSQL database. I made three models: Employees, Departments, and Users. Employees belong to a department and a department has many employees. There is only one user who is the admin. Only the admin can create, update, and destory employees. I used a loop in a seed file to make 100 calls to randomuser.me in order to generate 100 random employees with random data. I assigned each employee to one of five departments randomly as well.
+For this propject I used a Ruby on Rails backend with a PostgreSQL database. I made three models: Employees, Departments, and Users. Employees belong to a department and a department has many employees. There is only one user who is the admin. Only the admin can create, update, and destory employees. I used a loop in a seed file to make 100 calls to randomuser.me in order to generate 100 random employees with random data. I assigned each employee to one of five departments randomly as well. I used the bcrypt gem along with the jwt gem to hash passwords and store json web tokens in the browser for logged in users (the admin).
 
 ### Frontend
 
