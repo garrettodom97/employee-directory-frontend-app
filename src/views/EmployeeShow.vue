@@ -24,22 +24,76 @@
       <form method="dialog">
         <h1>Edit Employee</h1>
         <p>First Name:</p>
-        <input type="text" v-model="editEmployeeParams.first_name" />
-        <p>Last Name:</p>
-        <input type="text" v-model="editEmployeeParams.last_name" />
-        <p>Gender:</p>
-        <input type="text" v-model="editEmployeeParams.gender" />
-        <p>Email:</p>
-        <input type="text" v-model="editEmployeeParams.email" />
-        <p>Phone:</p>
-        <input type="text" v-model="editEmployeeParams.phone" />
-        <p></p>
-        <p>Picture:</p>
-        <input type="text" v-model="editEmployeeParams.picture" />
-        <p></p>
-        <p>Department Code (1: Engineering, 2: Sales, 3: Marketing, 4: Finance, 5: Human Resources):</p>
-        <input type="text" v-model="editEmployeeParams.department_code" />
-        <p></p>
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="First Name"
+            aria-label="First Name"
+            aria-describedby="addon-wrapping"
+            v-model="editEmployeeParams.first_name"
+          />
+        </div>
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Last Name"
+            aria-label="Last Name"
+            aria-describedby="addon-wrapping"
+            v-model="editEmployeeParams.last_name"
+          />
+        </div>
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Gender"
+            aria-label="Gender"
+            aria-describedby="addon-wrapping"
+            v-model="editEmployeeParams.gender"
+          />
+        </div>
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Email"
+            aria-label="Email"
+            aria-describedby="addon-wrapping"
+            v-model="editEmployeeParams.email"
+          />
+        </div>
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Phone"
+            aria-label="Phone"
+            aria-describedby="addon-wrapping"
+            v-model="editEmployeeParams.phone"
+          />
+        </div>
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Picture URL"
+            aria-label="Picture URL"
+            aria-describedby="addon-wrapping"
+            v-model="editEmployeeParams.picture"
+          />
+        </div>
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Department Code"
+            aria-label="Department Code"
+            aria-describedby="addon-wrapping"
+            v-model="editEmployeeParams.department_code"
+          />
+        </div>
         <button v-on:click="closeModal()" type="button" class="btn btn-secondary">Close</button>
         <button v-on:click="editEmployee()" type="button" class="btn btn-primary">Edit Employee</button>
       </form>

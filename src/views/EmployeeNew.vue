@@ -5,26 +5,81 @@
     <li v-for="error in errors" :key="error">
       {{ error }}
     </li>
-    <form v-on:submit.prevent="createEmployee()">
-      <p>First Name:</p>
-      <input type="text" v-model="newEmployeeParams.first_name" />
-      <p>Last Name:</p>
-      <input type="text" v-model="newEmployeeParams.last_name" />
-      <p>Gender:</p>
-      <input type="text" v-model="newEmployeeParams.gender" />
-      <p>Email:</p>
-      <input type="text" v-model="newEmployeeParams.email" />
-      <p>Phone:</p>
-      <input type="text" v-model="newEmployeeParams.phone" />
-      <p></p>
-      <p>Picture:</p>
-      <input type="text" v-model="newEmployeeParams.picture" />
-      <p></p>
-      <p>Department Code (1: Engineering, 2: Sales, 3: Marketing, 4: Finance, 5: Human Resources):</p>
-      <input type="text" v-model="newEmployeeParams.department_code" />
-      <p></p>
-      <input type="submit" />
-    </form>
+    <div class="d-flex justify-content-center align-items-center">
+      <form v-on:submit.prevent="createEmployee()">
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="First Name"
+            aria-label="First Name"
+            aria-describedby="addon-wrapping"
+            v-model="newEmployeeParams.first_name"
+          />
+        </div>
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Last Name"
+            aria-label="Last Name"
+            aria-describedby="addon-wrapping"
+            v-model="newEmployeeParams.last_name"
+          />
+        </div>
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Gender"
+            aria-label="Gender"
+            aria-describedby="addon-wrapping"
+            v-model="newEmployeeParams.gender"
+          />
+        </div>
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Email"
+            aria-label="Email"
+            aria-describedby="addon-wrapping"
+            v-model="newEmployeeParams.email"
+          />
+        </div>
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Phone"
+            aria-label="Phone"
+            aria-describedby="addon-wrapping"
+            v-model="newEmployeeParams.phone"
+          />
+        </div>
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Picture URL"
+            aria-label="Picture URL"
+            aria-describedby="addon-wrapping"
+            v-model="newEmployeeParams.picture"
+          />
+        </div>
+        <div class="input-group flex-nowrap">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Department Code"
+            aria-label="Department Code"
+            aria-describedby="addon-wrapping"
+            v-model="newEmployeeParams.department_code"
+          />
+        </div>
+        <input type="submit" />
+      </form>
+    </div>
   </div>
 </template>
 
@@ -56,3 +111,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.input-group {
+  width: 500px;
+}
+</style>
