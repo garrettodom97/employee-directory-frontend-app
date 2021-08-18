@@ -77,7 +77,7 @@
             v-model="newEmployeeParams.department_code"
           />
         </div>
-        <input type="submit" />
+        <button v-on:click="createEmployee()" type="button" class="btn btn-primary">Submit</button>
       </form>
     </div>
   </div>

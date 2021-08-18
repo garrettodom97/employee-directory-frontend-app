@@ -10,7 +10,7 @@
       <p>Password:</p>
       <input type="password" v-model="newSessionParams.password" />
       <p></p>
-      <input type="submit" />
+      <button v-on:click="Login()" type="button" class="btn btn-primary">Submit</button>
     </form>
   </div>
 </template>
